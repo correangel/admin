@@ -21,7 +21,7 @@
 <nav class="navbar navbar-expand-lg  menu1">
 	<div class="container-fluid">
 		<!-- Navbar brand -->
-  <a class="navbar-brand" href="#"><h2 class="font-weight-bold color1" style="font-size: 2rem;">Logo</h2></a>
+  <a class="navbar-brand" href="#"><h2 class="font-weight-bold color1" style="font-size: 2rem;">Kineshub | ADMIN</h2></a>
 
   <!-- Collapse button -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -34,19 +34,10 @@
 
     <!-- Links -->
     <ul class="navbar-nav ml-auto">
+      
+     
       <li class="nav-item ">
-        <a class="nav-link color1" href="#"><i class="fas fa-user "></i>
-          
-        </a>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-link color1" href="#"><i class="fas fa-bell "></i>
-          
-        </a>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-link color1" href="#"><i class="fas fa-power-off "></i>
-          
+        <a class="nav-link color1" href="logout.php"><i class="fas fa-power-off "></i>
         </a>
       </li>
       

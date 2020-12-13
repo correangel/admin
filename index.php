@@ -1,6 +1,6 @@
 <?php 
 	include "db.php";
-	include "include/header.php";
+	include "include/header2.php";
 	if(isset($_POST['usuario'])){
 		$usuario = $_POST['usuario'];
 		$clave = sha1($_POST['clave']);
