@@ -20,8 +20,7 @@ include "db.php";
       <td><?= $row['link'] ?></td>
       <td>
       <div class="row flex-center">
-      	    <div class="col-3 px-0"><a href="enviaremail.php" class="color2"><i class="far fa-edit f1 "></i></a></div>
-              <div class="col-3 px-0"><a href="eliminar.php" class="color2"><i class="far fa-trash-alt f1 "></i></a></div>
+              <div class="col-3 px-0"><a href="promociones.php?eliminar=<?= $row['id'] ?>" class="color2"><i class="far fa-trash-alt f1 "></i></a></div>
           </div>
       </td>
     </tr>

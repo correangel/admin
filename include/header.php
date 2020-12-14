@@ -73,6 +73,7 @@
 				<a href="soporte.php" class="d-block color1 p-3"><i class="fas fa-exclamation-circle mr-2 fa-2x"></i></a>
 				<a href="promociones.php" class="d-block color1 p-3"><i class="fas fa-gifts fa-2x mr-2" ></i></a>
 				<a href="nube.php" class="d-block color1 p-3"><i class="fas fa-cloud  fa-2x mr-2"></i></a>
+				<a href="participantes.php" class="d-block color1 p-3"><i class="fas fa-user-plus  fa-2x mr-2"></i></a>
 				<a href="validacion.php" class="d-block color1 p-3"><i class="fas fa-portrait  fa-2x mr-2"></i></a>
 				<?php
 				if($_SESSION['tipo'] == 4){

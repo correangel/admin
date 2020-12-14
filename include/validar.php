@@ -26,7 +26,6 @@ include "include/modal2.php";
       	<div class="row flex-center">
                 <?php $anuncio = $row['id_anuncio']; ?>
                <div class="col-3 px-0"><a href="#" class="color2" onclick="buscar_validar('<?= $anuncio ?>')" data-toggle="modal" data-target="#modal2"><i class="fas fa-edit f1 "></i></a></div>
-      		<div class="col-3 px-0"><a href="eliminar.php" class="color2"><i class="far fa-trash-alt f1 "></i></a></div>
           
       	</div>
       </td>
