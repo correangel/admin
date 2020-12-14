@@ -8,6 +8,7 @@ $row = mysqli_fetch_array($sql);
 $tipo = $_POST['tipo_email'];
 $mensaje = $_POST['personalizado'];
 $correo = $row['correo'];
+$usuario = $row['usuario'];
 
     if($tipo == 1){
     ini_set( 'display_errors', 1 );
@@ -43,7 +44,7 @@ $correo = $row['correo'];
         <div class='row justify-content-center mt-5'>
             <div class='col-lg-6 col-10 text-center'>
                 <h2 class='font-weight-bold h2-responsive'>Hola,</h2>
-                <h1 class='font-weight-bold h1-responsive'>$row['usuario']</h1>
+                <h1 class='font-weight-bold h1-responsive'> $usuario </h1>
             </div>
         </div>
         <p class='text-center font-weight-bold'>---</p>
