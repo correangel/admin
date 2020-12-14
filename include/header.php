@@ -10,7 +10,7 @@
 <!-- Bootstrap core CSS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
 <!-- Material Design Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/estilo.css">
 	<title>Document</title>
 </head>
@@ -73,7 +73,7 @@
 				<a href="soporte.php" class="d-block color1 p-3"><i class="fas fa-exclamation-circle mr-2 fa-2x"></i></a>
 				<a href="promociones.php" class="d-block color1 p-3"><i class="fas fa-gifts fa-2x mr-2" ></i></a>
 				<a href="nube.php" class="d-block color1 p-3"><i class="fas fa-cloud  fa-2x mr-2"></i></a>
-				<a href="#" class="d-block color1 p-3"><i class="fas fa-portrait  fa-2x mr-2"></i></a>
+				<a href="validacion.php" class="d-block color1 p-3"><i class="fas fa-portrait  fa-2x mr-2"></i></a>
 				<?php
 				if($_SESSION['tipo'] == 4){
 					?>

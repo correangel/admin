@@ -7,4 +7,6 @@ if (!$enlace) {
     echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
     exit;
 }
+
+$url_kine = "http://localhost/kineshub/";
 ?>

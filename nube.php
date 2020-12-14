@@ -10,15 +10,14 @@ else{
 
 	include("include/header.php");
 
-	if(isset($_POST['link'])){
-		$link = $_POST['link'];
+	if(isset($_POST['texto'])){
 		$texto_link = $_POST['texto_link'];
 		$texto = $_POST['texto'];
 
 		include "db.php";
 		mysqli_set_charset($enlace,"utf8");
 
-		$sql = mysqli_query($enlace, "UPDATE nube SET link = '$link', texto = '$texto', texto_link = '$texto_link' ");
+		$sql = mysqli_query($enlace, "UPDATE nube SET texto = '$texto', texto_link = '$texto_link' ");
 		if($sql){
 			$mostrar = si;
 		}
@@ -60,11 +59,7 @@ else{
             			<input type="text" class="form-control" value="<?= $row['texto_link'] ?>" name="texto_link" >
             		</div>
 
-            		<div class="form-group">
-            			<label>Link</label>
-            			<input type="text" class="form-control" value="<?= $row['link'] ?>" name="link" >
-            		</div>
-
+            		
             		<div class="form-group">
             			<label>Texto</label>
             			<textarea name="texto" class="form-control"><?= $row['texto'] ?></textarea>
