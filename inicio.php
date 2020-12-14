@@ -13,6 +13,6 @@ else{
 
 		
 	
-	<?php 
+<?php 
 	include "include/footer.php"
  ?>
