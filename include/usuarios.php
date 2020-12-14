@@ -59,8 +59,8 @@ else{
       	<div class="row flex-center">
           <?php
             if($row['tipo'] == 1 ){?>
-               <div class="col-3 px-0"><a href="#" class="color2"><i class="fas fa-edit f1 "></i></a></div>
-      		<div class="col-3 px-0"><a href="enviaremail.php" class="color2"><i class="far fa-envelope f1 "></i></a></div>
+               <div class="col-3 px-0" onclick="editar_usuario('<?= $row['id'] ?>')"><a href="#" class="color2"><i class="fas fa-edit f1 "></i></a></div>
+      		<div class="col-3 px-0" onclick="enviar_email_top('<?= $row['id'] ?>')"><a class="color2"><i class="far fa-envelope f1 "></i></a></div>
       		<div class="col-3 px-0"><a href="eliminar.php" class="color2"><i class="far fa-trash-alt f1 "></i></a></div>
            <?php }
            elseif($row['tipo'] == 3){?>
@@ -68,8 +68,8 @@ else{
            <?php }
            else{
           ?>
-          <div class="col-3 px-0"><a href="#" class="color2"><i class="fas fa-edit f1 "></i></a></div>
-      		<div class="col-3 px-0"><a href="" class="color2"><i class="far fa-envelope f1 "></i></a></div>
+          <div class="col-3 px-0" onclick="editar_usuario('<?= $row['id'] ?>')"><a href="#" class="color2"><i class="fas fa-edit f1 "></i></a></div>
+      		<div class="col-3 px-0" onclick="enviar_email_top('<?= $row['id'] ?>')"><a class="color2"><i class="far fa-envelope f1 "></i></a></div>
       		<div class="col-3 px-0"><a href="" class="color2"><i class="far fa-trash-alt f1 "></i></a></div>
            <?php } ?>
       	</div>
@@ -78,3 +78,122 @@ else{
   <?php } ?>
   </tbody>
 </table>
+
+<script>
+  function editar_usuario(id){
+    $.ajax({
+                              url:   'include/editar_usuario.php?id='+id, 
+                              type:  'GET',
+                              success:  function (response) 
+                                          {
+                                            $("#mostrar_email").html(response);
+                                            $("#modal_email").modal("show");
+                                          }
+                          });
+  }
+
+  function enviar_email_top(id){
+      $("#modal_email2").modal("show");
+      $("#id_usuario").val(id);
+  }
+
+  
+</script>
+
+
+<!-- Modal -->
+<div class="modal  fade right" id="modal_email" tabindex="-1" role="dialog" aria-labelledby="modal1."
+  aria-hidden="true">
+  <div class="modal-dialog  modal-lg  colormodal" role="document">
+    <div class="modal-content p-5">
+      
+      <div class="modal-body">
+        <div class="text-center" id="mostrar_email">
+          
+        </div>
+       
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal  fade right" id="modal_email2" tabindex="-1" role="dialog" aria-labelledby="modal1."
+  aria-hidden="true">
+  <div class="modal-dialog  modal-lg  colormodal" role="document">
+    <div class="modal-content p-5">
+      
+      <div class="modal-body">
+        <div class="text-center" id="enviar_email_desc">
+        <h2 class="font-weight-bold">Editar Usuario</h2>
+           
+           <div class="row justify-content-center" >
+            <div class="col-8">
+              <form id="enviar_email_iop"  onsubmit="return submit_email_top();">
+                  <div class="md-form w-100">
+                  <input type="hidden" name="id_usuario" id="id_usuario">
+                  <select name="tipo_email" id="tipo_email" onchange="tipo_email_mostrar()" class="form-control f3" id="">
+                  <option value="">Seleccion El Tipo de Email</option>
+                  <option value="1">Personalizado</option>
+                  <option value="2">Recuperacion de Contraseña</option>
+                  <option value="3">Actualizacion de Datos de Acceso</option>
+                  </select>
+                </div>    
+
+                <div class="md-form w-100" style="display: none;" id="personalizado_id">
+                  <textarea name="personalizado" id="personalizado" class="form-control f3" cols="30" rows="10"></textarea>
+                </div>    
+            </div>
+           
+
+           </div>
+           <div class="row d-flex justify-content-center">
+            <div class="col-6">
+              <div class="row justify-content-center">
+                 
+             <div class="col-12">
+               <button class="btn btn2" type="submit" >Actualizar</button>
+             </div>
+              </div>
+            </div>
+            </form>
+           </div>
+
+        </div>
+       
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<script>
+function tipo_email_mostrar(){
+    var param = $("#tipo_email").val();
+    if(param == 1){
+    $("#personalizado_id").show();
+    }
+    else{
+      $("#personalizado_id").hide();
+    }
+  }
+
+  function submit_email_top(){
+    var param = $("#enviar_email_iop").serialize();
+
+    $.ajax({
+                              data: param,
+                              url:   'include/enviar_email_top.php', 
+                              type:  'POST',
+                              success:  function (response) 
+                                          {
+                                            $("#enviar_email_desc").html(response);
+                                            //$("#modal_email2").modal("hide");
+                                          }
+                          });
+                          return false;
+  }
+</script>
