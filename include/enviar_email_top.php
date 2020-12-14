@@ -71,10 +71,3 @@ $usuario = $row['usuario'];
     echo "Email Enviado con Exito.";
     }
 ?>
-
-
- <?php 
-
- 	include "include/footer.php"
-  ?>
-    <?php } ?>
