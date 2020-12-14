@@ -24,7 +24,7 @@ $usuario = $row['usuario'];
     <link href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet'>
     <!-- Material Design Bootstrap -->
     <link href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css' rel='stylesheet'>
-    <link rel='stylesheet' href='tresolu.com/kineshub/css/estilo.css'>
+    <link rel='stylesheet' href='https://tresolu.com/kineshub/css/estilo.css'>
 
     
     <style>
