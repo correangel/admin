@@ -14,11 +14,11 @@ $row = mysqli_fetch_array($sql);
               <form id="actualizar_datos_user">
                   <div class="md-form w-100">
   <input type="text" id="usuario" name="usuario" value="<?= $row['usuario'] ?>" class="form-control f3">
-  <label for="nombre">Usuario</label>
+  <!-- <label for="nombre">Usuario</label> -->
 </div>
 <div class="md-form w-100">
   <input type="text" id="correo" name="correo" value="<?= $row['correo'] ?>" class="form-control f3">
-  <label for="apellido">Correo</label>
+  <!-- <label for="apellido">Correo</label> -->
 </div>      
             </div>
            
