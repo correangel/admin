@@ -20,42 +20,97 @@ $usuario = $row['usuario'];
     <!DOCTYPE html>
 <html lang='en'>
 <body>
-	<style>
-	.color5 {
+    <style>
+    .color5 {
     color: #FA374B!important;
 }
+body{
+    font-family: roboto;
+}
+.margen1{
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.margen2{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.text-dark{
+    color: #000;
+}
+
 </style>
 <main>
     <table width='100%'>
-    <tr width = 100%''>
+    <tr width = '100%'>
     <td width='33%'></td>
-    <td width='33%'><img src='tresolu.com/kineshub/img/logo.png' width = '100%' alt=''></td>
+    <td width='33%'><img src='img/logo.png' width = '100%' alt=''></td>
+    <td width='33%'></td>
+    </tr>
+     <tr width = '100%'>
+    <td width='33%'></td>
+    <td width='33%'>
+            <h2 class='margen1' style='text-align: center;font-weight: bold;font-size: 30px;'>Hola,</h2>
+                <h1 class='margen1' style='text-align: center;font-weight: bold;font-size: 30px;'>$usuario</h1>
+    </td>
+    <td width='33%'></td>
+    </tr>
+    <tr width = '100%'>
+    <td width='33%'></td>
+    <td width='33%'>
+                <h4 class='margen2'  style='text-align: center;font-size: 18px;font-weight: 200;'>Queremos Contactarnos contigo.
+</h4>
+    </td>
+    <td width='33%'></td>
+    </tr>
+     <tr width = '100%'>
+    <td width='33%'></td>
+    <td width='33%'>
+                <p class='margen2'  style='text-align: center;font-weight: normal;font-size: 18px;font-weight: 300;'>$mensaje
+</p>
+    </td>
+    <td width='33%'></td>
+    </tr>
+
+      <tr width = '100%'>
+    <td width='33%'></td>
+    <td width='33%'>
+                <p class='margen2'  style='text-align: center;font-weight: normal;font-size: 20px;font-weight: 400;'>¡Consigue la mejor compañía en tu zona al alcance de un click!
+</p>
+    </td>
+    <td width='33%'></td>
+    </tr>
+     <tr width = '100%'>
+    <td width='33%'></td>
+    <td width='33%'>
+                <p class='margen1'  style='text-align: center;font-weight: normal;font-size: 18px;font-weight: 300;'>Atentamente,
+</p>
+<p class='margen2'  style='text-align: center;font-weight: normal;font-size: 18px;font-weight: 300;'>Equipo Kineshub.</p>
+    </td>
+    <td width='33%'></td>
+    </tr>
+
+    <tr width = '100%'>
+    <td width='33%'></td>
+    <td width='33%'>
+        <p style='text-align: center;'><a href='#' class='text-dark'><u>Kineshub.com</u></a> | <a href='#' class='text-dark'><u>  Terminos y Condiciones</u></a></p>
+        <p class='margen2' style='text-align: center;font-weight: normal;font-size: 15px;font-weight: 400;'>Lima , Perú</p>
+        <p class='margen2' style='text-align: center;font-weight: normal;font-size: 15px;font-weight: 400;'>©2020 Kineshub</p>
+
+    </td>
     <td width='33%'></td>
     </tr>
     </table>
-	<div class='container mt-2 mt-lg-5' style='position: absolute;left: 50%;'>
-		
-		<div class='row  mt-5'>
-			<div class='col-lg-6 col-10 text-center'>
-				<h2 class='font-weight-bold h2-responsive'>Hola,</h2>
-				<h1 class='font-weight-bold h1-responsive'>$usuario</h1>
-			</div>
-		</div>
-		<!-- <p class=' font-weight-bold' style='margin-left: 250px;'>---</p> -->
-		<div class='row mt-2'>
-			<div class='col-lg-6 col-10 text-center'>
-				<h4 class='font-weight-normal '>Queremos Contactarnos contigo.
-</h4>
-<p class='my-3 h4-responsive font-weight-bolder h4-responsive' style='font-size: 18px;'>$mensaje</p>
-<h5 class='font-weight-bolder'>¡Consigue la mejor compañía en tu zona al alcance de un click!</h5>
-<p class='font-weight-bolder mt-4'>Atentamente,</p>
-<p class='font-weight-bolder '>Equipo Kineshub.</p>
-<p><a href='#' class='text-dark'><u>Kineshub.com</u></a> | <a href='#' class='text-dark'><u>  Terminos y Condiciones</u></a></p>
-<p class='font-weight-bolder'>Lima , Perú</p>
-<p class='font-weight-bolder'>©2020 Kineshub</p>
-			</div>
-		</div>
-	</div>
+    
+    
+        
+
+
+
+
+
+
+
 </main>
 </body>
 </html>
