@@ -121,4 +121,161 @@ body{
     $headers .= "From:" . $from;
     echo mail($to,$subject,$message, $headers)?"Enviado Con Exito":"Error al Enviar";
     }
+
+    if($tipo == 2){
+        $sql = "SELECT * FROM usuarios ";
+		$sql .= "WHERE correo='" . $correo . "'";
+	
+	
+			mysqli_set_charset($enlace,"utf8");
+			$result = mysqli_query($enlace, $sql);
+			$num = mysqli_num_rows($result);
+			
+			if($num > 0){
+				$permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+ 
+				function generate_string($input, $strength = 16) {
+					$input_length = strlen($input);
+					$random_string = '';
+					for($i = 0; $i < $strength; $i++) {
+						$random_character = $input[mt_rand(0, $input_length - 1)];
+						$random_string .= $random_character;
+					}
+				
+					return $random_string;
+				}
+				
+				$recuperar_contrasena = generate_string($permitted_chars, 200);
+
+				$sql = " UPDATE usuarios SET  ";
+				$sql .= "codigo_contrasena='$recuperar_contrasena',";
+				$sql .= "clave=''";
+
+				$sql .= " WHERE correo='". $correo ."'";
+
+				mysqli_set_charset($enlace,"utf8");
+				$result = mysqli_query($enlace, $sql);
+
+				if($result){
+
+                    ini_set( 'display_errors', 1 );
+                    error_reporting( E_ALL );
+                    $from = "soporte@kineshub.com";
+                    $to = "$correo";
+                    $subject = "Kineshub | Necesitamos Contactarnos  Contigo";
+
+                    $message = "
+    <!DOCTYPE html>
+<html lang='en'>
+<body>
+    <style>
+    .color5 {
+    color: #FA374B!important;
+}
+body{
+    font-family: roboto;
+}
+.margen1{
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.margen2{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.text-dark{
+    color: #000;
+}
+
+</style>
+<main>
+    <table width='100%'>
+    <tr width = '100%'>
+    <td width='33%'></td>
+    <td width='33%'><img src='tresolu.com/kineshub/img/logo.png' width = '100%' alt=''></td>
+    <td width='33%'></td>
+    </tr>
+    
+     <tr width = '100%'>
+    <td width='33%'></td>
+    <td width='33%'>
+            <h2 class='margen1' style='text-align: center;font-weight: bold;font-size: 30px;'>RECUPERACION DE CONTRASEÑA ,</h2>
+                <h1 class='margen1' style='text-align: center;font-weight: bold;font-size: 30px;'>Estimado $usuario, Jamas podemos olvidarnos de llevar proteccion, pero si de nuestra contraseña. Para eso te ayudaremos a crear na nueva a continuacion </h1>
+    </td>
+    <td width='33%'></td>
+    </tr>
+    <tr width = '100%'>
+    <td width='33%'></td>
+    <td width='33%'>
+                <h4 class='margen2'  style='text-align: center;font-size: 18px;font-weight: 200;'
+</h4>
+    </td>
+    <td width='33%'></td>
+    </tr>
+     <tr width = '100%'>
+    <td width='33%'></td>
+    <td width='33%'>
+                <p class='margen2'  style='text-align: center;font-weight: normal;font-size: 18px;font-weight: 300;'><a href='https://tresolu.com/kineshub/?recuperar=$recuperar_contrasena'>href='https://tresolu.com/kineshub/?recuperar=$recuperar_contrasena'</a>
+</p>
+    </td>
+    <td width='33%'></td>
+    </tr>
+
+      <tr width = '100%'>
+    <td width='33%'></td>
+    <td width='33%'>
+                <p class='margen2'  style='text-align: center;font-weight: normal;font-size: 20px;font-weight: 400;'>¡Consigue la mejor compañía en tu zona al alcance de un click!
+</p>
+    </td>
+    <td width='33%'></td>
+    </tr>
+     <tr width = '100%'>
+    <td width='33%'></td>
+    <td width='33%'>
+                <p class='margen1'  style='text-align: center;font-weight: normal;font-size: 18px;font-weight: 300;'>Atentamente,
+</p>
+<p class='margen2'  style='text-align: center;font-weight: normal;font-size: 18px;font-weight: 300;'>Equipo Kineshub.</p>
+    </td>
+    <td width='33%'></td>
+    </tr>
+
+    <tr width = '100%'>
+    <td width='33%'></td>
+    <td width='33%'>
+        <p style='text-align: center;'><a href='#' class='text-dark'><u>Kineshub.com</u></a> | <a href='#' class='text-dark'><u>  Terminos y Condiciones</u></a></p>
+        <p class='margen2' style='text-align: center;font-weight: normal;font-size: 15px;font-weight: 400;'>Lima , Perú</p>
+        <p class='margen2' style='text-align: center;font-weight: normal;font-size: 15px;font-weight: 400;'>©2020 Kineshub</p>
+
+    </td>
+    <td width='33%'></td>
+    </tr>
+    </table>
+    
+    
+        
+
+
+
+
+
+
+
+</main>
+</body>
+</html>
+
+    ";
+					
+    $headers = "MIME-Version: 1.0" . "\r\n";
+	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= "From:" . $from;
+    echo mail($to,$subject,$message, $headers)?"Enviado Con Exito":"Error al Enviar";
+				}
+				else{
+					echo "error".mysqli_error($enlace);
+				}
+
+			}
+			
+    }
 ?>

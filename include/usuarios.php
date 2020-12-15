@@ -191,7 +191,7 @@ function tipo_email_mostrar(){
                               success:  function (response) 
                                           {
                                             $("#enviar_email_desc").html(response);
-                                            //$("#modal_email2").modal("hide");
+                                            setTimeout("location.href='usuarios.php'", 10);
                                           }
                           });
                           return false;
