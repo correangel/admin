@@ -13,10 +13,12 @@ $row = mysqli_fetch_array($sql);
             <div class="col-8">
               <form id="actualizar_datos_user">
                   <div class="md-form w-100">
+                    <p class="text-left pb-0 mb-0 font-weight-bolder" style="font-size: 13px;">Usuario:</p>
   <input type="text" id="usuario" name="usuario" value="<?= $row['usuario'] ?>" class="form-control f3">
   <!-- <label for="nombre">Usuario</label> -->
 </div>
 <div class="md-form w-100">
+   <p class="text-left pb-0 mb-0 font-weight-bolder" style="font-size: 13px;">Correo:</p>
   <input type="text" id="correo" name="correo" value="<?= $row['correo'] ?>" class="form-control f3">
   <!-- <label for="apellido">Correo</label> -->
 </div>      
