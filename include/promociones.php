@@ -16,7 +16,7 @@ include "db.php";
   <?php while($row = mysqli_fetch_array($sql)){ ?>
     <tr>
       <th scope="row"><?= $row['id'] ?></th>
-      <td> <img src="../kineshub/images/<?= $row['imagen'] ?>" style="width: 150px !important;" alt=""> </td>
+      <td> <img src="images/<?= $row['imagen'] ?>" style="width: 150px !important;" alt=""> </td>
       <td><?= $row['link'] ?></td>
       <td>
       <div class="row flex-center">

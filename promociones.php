@@ -23,7 +23,7 @@ if(isset($_GET['eliminar'])){
 					<h2 class="font-weight-bold my-3 text-center mt-lg-5">Promociones</h2>
 					<div class="row d-flex justify-content-center">
 						<div class="col-lg-8 mt-4">
-							 <button class="btn boton1" ><i class="fas fa-plus"></i> Nueva Promocion</button> 
+							 <button class="btn boton1" onclick="mostrar_modal()"><i class="fas fa-plus"></i> Nueva Promocion</button> 
 							<div class="row mt-4">
 								<div class="col-lg-6"></div>
 								<div class="col-lg-6">
@@ -60,30 +60,19 @@ if(isset($_GET['eliminar'])){
       
       <div class="modal-body">
         <div class="text-center">
-           <h2 class="font-weight-bold">Formulario</h2>
+           <h2 class="font-weight-bold">Cree una Promo</h2>
            
            <div class="row justify-content-center">
-            <div class="col-8">
-              <p class="mt-3" style="font-size: 13px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis amet at facilis numquam iste tenetur eum nobis rerum, expedita quia fuga natus officiis sit illo.</p>
-              <form>
+            <div class="col-8"><form>
                   <div class="md-form w-100">
-					<input type="text" id="nombre" class="form-control f3">
-					<label for="nombre">Nombre</label>
+					<input type="text" id="link" class="form-control f3">
+					<label for="nombre">Link</label>
 					</div>
 					<div class="md-form w-100">
-					<input type="text" id="apellido" class="form-control f3">
-					<label for="apellido">Apellido</label>
+					<input type="file" name="image" id="image" class="form-control f3">
+					<label for="apellido">Foto</label>
 					</div>
-					<div class="md-form w-100">
-					<input type="email" id="correo" class="form-control f3">
-					<label for="correo">Correo</label>
-					</div>
-					<div class="md-form w-100">
-					<input type="text" id="asunto" class="form-control f3">
-					<label for="asunto">Asunto</label>
-					</div>
-              </form>
-            
+					
             </div>
            
 
@@ -93,11 +82,11 @@ if(isset($_GET['eliminar'])){
               <div class="row justify-content-center">
                  
              <div class="col-12">
-               <button class="btn btn2" type="submit">Enviar</button>
+               <button class="btn btn2" onclick="guardar_promocion()">Enviar</button>
              </div>
               </div>
             </div>
-            
+			</form>
            </div>
         </div>
        
@@ -106,6 +95,36 @@ if(isset($_GET['eliminar'])){
     </div>
   </div>
 </div>
+
+<script>
+	function mostrar_modal(){
+		$("#modal_promociones").modal("show");
+	}
+
+	function guardar_promocion(){
+		var formData = new FormData();
+        var files = $('#image')[0].files[0];
+        formData.append('file',files);
+
+		var link = $("#link").val();
+        $.ajax({
+            url: 'upload2.php?link='+link,
+            type: 'post',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                if (response != 0) { 
+                    setTimeout("location.href='promociones.php'", 10);
+                } else {
+                    $("#imagenes_cargadas").html("No se han cargado imagenes, o ha sucedido un error, intentelo nuevamente");
+                }
+            }
+        });
+
+		return false;
+	}
+</script>
 	<?php 
 	include "include/footer.php"
  ?>
