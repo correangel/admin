@@ -19,20 +19,6 @@ $usuario = $row['usuario'];
     $message = "
     <!DOCTYPE html>
 <html lang='en'>
-<head>
-	<meta charset='UTF-8'>
-	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-		<!-- Font Awesome -->
-<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css'>
-<!-- Google Fonts -->
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'>
-<!-- Bootstrap core CSS -->
-<link href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css' rel='stylesheet'>
-<!-- Material Design Bootstrap -->
-<link href='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css' rel='stylesheet'>
-	<title>Document</title>
-
-</head>
 <body>
 	<style>
 	.color5 {
@@ -40,13 +26,14 @@ $usuario = $row['usuario'];
 }
 </style>
 <main>
+    <table width='100%'>
+    <tr width = 100%''>
+    <td width='33%'></td>
+    <td width='33%'><img src='tresolu.com/kineshub/img/logo.png' width = '100%' alt=''></td>
+    <td width='33%'></td>
+    </tr>
+    </table>
 	<div class='container mt-2 mt-lg-5' style='position: absolute;left: 50%;'>
-		<div class='row  mt-0 pt-lg-5'>
-			<div class='col-lg-3 col-8' style='margin-left: 150px;'>
-				<img src='img/logo.png' class='w-100' alt=''>
-
-			</div>
-		</div>
 		
 		<div class='row  mt-5'>
 			<div class='col-lg-6 col-10 text-center'>
@@ -71,14 +58,6 @@ $usuario = $row['usuario'];
 	</div>
 </main>
 </body>
-<!-- JQuery -->
-<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
-<!-- Bootstrap tooltips -->
-<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js'></script>
-<!-- Bootstrap core JavaScript -->
-<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js'></script>
-<!-- MDB core JavaScript -->
-<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js'></script>
 </html>
 
     ";
