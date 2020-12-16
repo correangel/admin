@@ -127,7 +127,7 @@ else{
       
       <div class="modal-body">
         <div class="text-center" id="enviar_email_desc">
-        <h2 class="font-weight-bold">Editar Usuario</h2>
+        <h2 class="font-weight-bold">Enviar Email a Usuario</h2>
            
            <div class="row justify-content-center" >
             <div class="col-8">
@@ -138,7 +138,6 @@ else{
                   <option value="">Seleccion El Tipo de Email</option>
                   <option value="1">Personalizado</option>
                   <option value="2">Recuperacion de Contraseña</option>
-                  <option value="3">Actualizacion de Datos de Acceso</option>
                   </select>
                 </div>    
 
