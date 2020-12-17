@@ -131,7 +131,7 @@ else{
                               success:  function (response) 
                                           {
                                             $("#enviar_email_desc").html(response);
-                                            //setTimeout("location.href='soporte.php'", 10);
+                                            setTimeout("location.href='soporte.php'", 10);
                                           }
                           });
                           return false;
