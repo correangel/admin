@@ -61,16 +61,16 @@ else{
             if($row['tipo'] == 1 ){?>
                <div class="col-3 px-0" onclick="editar_usuario('<?= $row['id'] ?>')"><a href="#" class="color2"><i class="fas fa-edit f1 "></i></a></div>
       		<div class="col-3 px-0" onclick="enviar_email_top('<?= $row['id'] ?>')"><a class="color2"><i class="far fa-envelope f1 "></i></a></div>
-      		<div class="col-3 px-0"><a href="eliminar.php" class="color2"><i class="far fa-trash-alt f1 "></i></a></div>
+      		<div class="col-3 px-0" onclick="eliminar_usuario('<?= $row['id'] ?>')"><a  class="color2"><i class="far fa-trash-alt f1 "></i></a></div>
            <?php }
            elseif($row['tipo'] == 3){?>
-      		<div class="col-3 px-0"><a href="" class="color2"><i class="far fa-envelope f1 "></i></a></div>
+      		<div class="col-3 px-0" onclick="enviar_email_top2('<?= $row['id'] ?>')" class="color2"><i class="far fa-envelope f1 "></i></a></div>
            <?php }
            else{
           ?>
           <div class="col-3 px-0" onclick="editar_usuario('<?= $row['id'] ?>')"><a href="#" class="color2"><i class="fas fa-edit f1 "></i></a></div>
       		<div class="col-3 px-0" onclick="enviar_email_top('<?= $row['id'] ?>')"><a class="color2"><i class="far fa-envelope f1 "></i></a></div>
-      		<div class="col-3 px-0"><a href="" class="color2"><i class="far fa-trash-alt f1 "></i></a></div>
+      		<div class="col-3 px-0" onclick="eliminar_usuario('<?= $row['id'] ?>')"><a class="color2"><i class="far fa-trash-alt f1 "></i></a></div>
            <?php } ?>
       	</div>
       </td>
@@ -97,6 +97,25 @@ else{
       $("#id_usuario").val(id);
   }
 
+  function enviar_email_top2(id){
+      $("#modal_email3").modal("show");
+      $("#id_usuario").val(id);
+      $("#id_usuario_admin").val(id);
+  }
+
+  function eliminar_usuario(id){
+    $.ajax({
+                              url:   'include/eliminar_usuario.php?id='+id, 
+                              type:  'GET',
+                              success:  function (response) 
+                                          {
+                                            if(response == 1){
+                                              setTimeout("location.href='usuarios.php'", 10);
+                                            }
+                                            
+                                          }
+                          });
+  } 
   
 </script>
 
@@ -169,6 +188,50 @@ else{
 </div>
 
 
+
+<!-- Modal -->
+<div class="modal  fade right" id="modal_email3" tabindex="-1" role="dialog" aria-labelledby="modal1."
+  aria-hidden="true">
+  <div class="modal-dialog  modal-lg  colormodal" role="document">
+    <div class="modal-content p-5">
+      
+      <div class="modal-body">
+        <div class="text-center" id="enviar_email_desc">
+        <h2 class="font-weight-bold">Enviar Email a Administrador </h2>
+           
+           <div class="row justify-content-center" >
+            <div class="col-8">
+              <form id="enviar_email_iop2"  onsubmit="return submit_email_top2();">
+                  
+                <div class="md-form w-100"  id="personalizado_id">
+                  <textarea name="personalizado" id="personalizado" class="form-control f3" cols="30" rows="10"></textarea>
+                  <input type="hidden" id="id_usuario_admin" name="id_usuario_admin">
+                </div>    
+            </div>
+           
+
+           </div>
+           <div class="row d-flex justify-content-center">
+            <div class="col-6">
+              <div class="row justify-content-center">
+                 
+             <div class="col-12">
+               <button class="btn btn2" type="submit" >Actualizar</button>
+             </div>
+              </div>
+            </div>
+            </form>
+           </div>
+
+        </div>
+       
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
 <script>
 function tipo_email_mostrar(){
     var param = $("#tipo_email").val();
@@ -195,4 +258,21 @@ function tipo_email_mostrar(){
                           });
                           return false;
   }
+
+  function submit_email_top2(){
+    var param = $("#enviar_email_iop2").serialize();
+
+    $.ajax({
+                              data: param,
+                              url:   'include/enviar_email_admin.php', 
+                              type:  'POST',
+                              success:  function (response) 
+                                          {
+                                            $("#enviar_email_desc").html(response);
+                                            //setTimeout("location.href='usuarios.php'", 10);
+                                          }
+                          });
+                          return false;
+  }
+
 </script>

@@ -20,7 +20,9 @@ else{
     </tr>
   </thead>
   <tbody>
-  <?php while($row = mysqli_fetch_array($sql)){ ?>
+  <?php while($row = mysqli_fetch_array($sql)){
+    $id = $row['id'];
+   ?>
     <tr>
       <th scope="row"><?= $row['id'] ?></th>
       <td><?= $row['correo'] ?></td>
@@ -50,7 +52,7 @@ else{
       <?php
                 if($row['estado'] == 1){ ?>
       	<div class="row flex-center">
-      	    <div class="col-3 px-0"><a href="enviaremail.php" class="color2"><i class="far fa-envelope f1 "></i></a></div>
+      	    <div class="col-3 px-0" onclick="modal_queja('<?= $id ?>')"><a class="color2"><i class="far fa-envelope f1 "></i></a></div>
           </div>
           <?php }
           else{ ?> 
@@ -61,3 +63,78 @@ else{
   <?php } ?>
   </tbody>
 </table>
+
+<!-- Modal -->
+<div class="modal  fade right" id="modal_email1" tabindex="-1" role="dialog" aria-labelledby="modal1."
+  aria-hidden="true">
+  <div class="modal-dialog  modal-lg  colormodal" role="document">
+    <div class="modal-content p-5">
+      
+      <div class="modal-body">
+        <div class="text-center" id="enviar_email_desc">
+        <h2 class="font-weight-bold"> Responder Soporte </h2>
+           
+           <div class="row justify-content-center" >
+            <div class="col-8">
+              <form id="enviar_email_iop2"  onsubmit="return submit_email_top2();">
+                  
+                <div class="md-form w-100"  id="personalizado_id">
+                  <textarea name="personalizado" id="personalizado" class="form-control f3" cols="30" rows="10"></textarea>
+                  <input type="hidden" id="id_usuario_admin" name="id_usuario_admin">
+                </div>    
+            </div>
+           
+
+           </div>
+           <div class="row d-flex justify-content-center">
+            <div class="col-6">
+              <div class="row justify-content-center">
+                 
+             <div class="col-12">
+               <button class="btn btn2" type="submit" >Enviar</button>
+             </div>
+              </div>
+            </div>
+            </form>
+           </div>
+
+        </div>
+       
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  
+  function modal_queja(id) {
+    $.ajax({
+        url:   'include/mostrar_queja.php?id='+id, 
+        type:  'GET',
+        success:  function (response) 
+        {
+          $("#personalizado_id").html(response);
+          $("#modal_email1").modal("show");
+        }
+    });
+  }
+
+  function submit_email_top2(){
+    var param = $("#enviar_email_iop2").serialize();
+
+    $.ajax({
+                              data: param,
+                              url:   'include/enviar_email_soporte.php', 
+                              type:  'POST',
+                              success:  function (response) 
+                                          {
+                                            $("#enviar_email_desc").html(response);
+                                            setTimeout("location.href='soporte.php'", 10);
+                                          }
+                          });
+                          return false;
+  }
+
+</script>
