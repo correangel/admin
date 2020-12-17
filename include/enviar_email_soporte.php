@@ -9,6 +9,10 @@ $row = mysqli_fetch_array($sql);
 $correo = $row['correo'];
 $usuario = $row['usuario'];
 
+$sql2 = mysqli_query($enlace, "UPDATE contacto SET ESTADO = 2 WHERE id= '$id' ");
+
+if(!$sql2){echo "error";}
+
 ini_set( 'display_errors', 1 );
     error_reporting( E_ALL );
     $from = "soporte@kineshub.com";
@@ -120,4 +124,3 @@ body{
     echo mail($to,$subject,$message, $headers)?"Enviado Con Exito":"Error al Enviar";
 
     ?>	
-?>
